@@ -1,0 +1,107 @@
+.main-orders{
+  padding: 20px;
+  h2{
+    font-size: 28px;
+    font-family: Noto serif;
+  }
+  .orders{
+    margin-top: 20px;
+    .filters{
+      display: flex;
+      gap: 10px;
+      h3{
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        font-family: Oswald;
+      }
+      .filter-active{
+        color: #fff;
+        background-color: #177;
+      }
+      button{
+        font-size: 18px;
+        font-family: Oswald;
+        color: #000;
+        padding: 10px 20px;
+      }
+    }
+      .table-orders{
+        font-family: Oswald;
+        thead{
+          th{
+            font-size: 20px;
+            padding: 10px 20px;
+          }
+        }
+        .tbody{
+        #tr{
+          td{
+            border-top: 2px solid #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+            .select{
+              padding: 10px 15px;
+              font-size: 18px;
+              background-color: #f2f2f2;
+              font-family: Oswald;
+              margin-right: 10px;
+              }
+            button{
+              font-size: 18px;
+              font-family: Oswald;
+              background-color: #177;
+              color: #fff;
+              padding: 10px 20px;
+            }
+            .item{
+              display: flex;
+              gap: 20px;
+              background-color: #fff;
+              font-family: Oswald;
+              font-size: 20px;
+              .item-container{
+                width: 450px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                gap: 20px;
+              &__name{
+                width: 100px;
+              }
+              &__img{
+                width: 100px;
+              }
+            }
+            &__rate{
+              margin-right: 20px;
+              display: flex;
+              gap: 10px;
+              position: relative;
+              align-self: center;
+              justify-content: center;
+              height: max-content;
+              p{
+                font-size: 16px;
+                position: absolute;
+                bottom: -22px;
+              }
+              button{
+                background-color: #aaa;
+                cursor: pointer;
+                &:hover{
+                  background-color: #177;
+                }
+              }
+              .active-rate{
+                background-color: #177;
+              }
+            }
+          }
+          }
+        }
+      }
+    }
+  }
+}

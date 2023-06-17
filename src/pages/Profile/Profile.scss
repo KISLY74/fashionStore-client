@@ -1,0 +1,101 @@
+.main-profile{
+  padding: 20px;
+  .btn-logout{
+    padding: 10px 20px;
+    font-family: Oswald;
+    font-size: 18px;
+    background-color: rgb(202, 6, 6);
+    cursor: pointer;
+    color: #fff;
+    &:hover{
+      background-color: #000;
+      color: #fff;
+    }
+    &:active{
+      background-color: #aaa;
+    }
+  }
+  h2{
+    font-family: Noto serif;
+    font-size: 28px;
+  }
+  .section{
+    margin-top: 10px;
+    .container-title{
+      font-size: 24px;
+      font-family: Oswald;
+    }
+    .info-container{
+      margin: 20px 0;
+      .form{
+        margin-top: 15px;
+        .group-buttons{
+          display: flex;
+          margin-top: 20px;
+          gap: 7px;
+          .btn{
+            padding: 10px 20px;
+            background-color: #177;
+            color: #fff;
+            font-size: 16px;
+            font-family: Oswald;
+            cursor: pointer;
+            &:hover{
+              background-color: #000;
+              color: #fff;
+            }
+            &:active{
+              background-color: #aaa;
+            }
+          }
+        }
+        .form-container{
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .form-group{
+              display: flex;
+              align-items: center;
+              width: 430px;
+              justify-content: space-between;
+              label{
+                font-size: 20px;
+                font-family: Oswald;
+              }
+              p{
+                font-family: Oswald;
+                font-size: 18px;
+                font-weight: bold;
+              }
+              .form-control{
+                font-family: Oswald;
+                padding: 10px 20px;
+                font-size: 18px;
+                width: 200px;
+              }
+            }
+      }
+    }
+    }
+    .activate-container{
+      margin-bottom: 20px;
+      p{
+        font-family: Oswald;
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media (max-width: 450px){
+  .main-profile{
+    padding: 10px;
+    .form-container{
+      .form-group{
+        width: 350px !important;
+        p{
+          width: max-content;
+        }
+      }
+    }
+}
+}

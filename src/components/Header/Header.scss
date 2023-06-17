@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+}
+body{
+  background-color: #E2E2E2;
+}
+.header{
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #177E89;
+  box-sizing: border-box;
+  &-container{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 4px 20px;
+    &__name-store{
+      min-width: 170px;
+      font-family: Dancing Script;
+    }
+    .nav{
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      width:  100%;
+      .nav-list{
+        .active-nav{
+          font-weight: bold;
+        }
+        a{
+          color: #000;
+          font-weight: 400;
+          font-family: Oswald;
+          font-size: 20px;
+        }
+        display: inline-flex;
+        align-items: center;
+        gap: 20px;
+        font-family: Noto serif;
+        position: relative;
+        .warning-not-activated{
+          position: absolute;
+          width: 20px;
+          top: 0;
+          right: -5px;
+        }
+        &__item{
+          color: #000;
+          font-weight: bold;
+          cursor: pointer;
+          
+        }
+        // .basket::after{
+        //   content: "2";
+        //   position: absolute;
+        //   top: 14px;
+        //   right: -30px;
+        //   color: #fff;
+        //   background-color: #177E89;
+        //   border-radius: 50px;
+        //   padding: 2px 8px;
+        // }
+      &__img{
+        cursor: pointer;
+        width: 30px;
+        border-radius: 32px;
+        padding: 10px;
+        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+        &:hover{
+          box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+        }
+      }
+      &__not-auth{
+        font-family: Oswald;
+        font-style: italic;
+        .link{
+          color: #177E89;
+        }
+      }
+    }
+  }
+  }
+}
+@media (max-width: 400px) {
+    .header-container{
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      gap: 5px;
+      height: 70px;
+      .nav{
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        .nav-list:nth-child(1){
+          display: none;
+        }
+      }
+    }
+}

@@ -1,0 +1,14 @@
+.card-list{
+  margin-top: 20px;
+  display: flex;
+  .list-container{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 60px;
+    column-gap: 40px;
+  }
+}
+
+@media (max-width: 450px) {
+  
+}

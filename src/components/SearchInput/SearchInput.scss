@@ -1,0 +1,26 @@
+.search-container{
+  display: flex;
+  gap: 10px;
+  height: max-content;
+  .search-input{
+    font-size: 18px;
+    font-family: Oswald;
+    padding: 10px;
+    width: 210px;
+  }
+  .search-btn{
+    font-size: 18px;
+    font-family: Oswald;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #177;
+    &:hover{
+      background-color: #aaa;
+      color: #000;
+    }
+    &:active{
+      background-color: #f2f2f2;
+    }
+  }
+}

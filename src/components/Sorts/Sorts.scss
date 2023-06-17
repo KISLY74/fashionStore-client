@@ -1,0 +1,82 @@
+.sorts-container{
+  display: flex;
+  gap: 20px;
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    .top{
+        font-family: Oswald;
+        padding: 10px 20px;
+        background-color: #fff;
+        width: max-content;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover,
+        .active{
+          color: #fff;
+          background-color: #177;
+        }
+        &:active{
+          background-color: #aaa;
+        }
+    }
+    .price-container{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    label{
+      background-color: #aaa;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-family: Oswald;
+    }
+    &__value{
+      font-size: 18px;
+      font-family: Oswald;
+      border-radius: 20px;
+      width: 50px;
+      padding: 5px 15px;
+    }
+  }
+  button{
+    border-radius: 20px;
+    font-family: Oswald;
+    font-size: 18px;
+    padding: 5px 15px;
+    background-color: #177;
+    color: #fff;
+    cursor: pointer;
+    &:hover{
+      background-color: #f2f2f2;
+      color: #000;
+    }
+  }
+  }
+  .container:nth-child(2){
+    button{
+      border-radius: 0;
+      color: #000;
+      background-color: #fff;
+    &:hover{
+      background-color: #177;
+      color: #fff;
+    }
+  }
+  .active{
+      background-color: #177;
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+.sorts-container{
+  flex-direction: column;
+  .container{
+    display: flex;
+    justify-content: center;
+  }
+}
+}

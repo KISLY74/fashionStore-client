@@ -1,0 +1,64 @@
+.card-item{
+  background-color: #fff;
+  font-family: Oswald;
+  width: 200px;
+  position: relative;
+  .card-rate{
+    position: absolute;
+    z-index: 5;
+    background-color: #177;
+    padding: 2px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    box-sizing: border-box;
+    color: #fff;
+  }
+  .container-img{
+    overflow: hidden;
+    height: 260px;
+    img{
+      object-fit: cover;
+      transition: .3s;
+      width: 200px;
+      height: 260px;
+      cursor: pointer;
+      &:hover{
+        transition: .3s;
+        transform: scale(1.2);
+      }
+  }
+}
+.info{
+  display: flex;
+  flex-direction: column;
+    padding: 15px 10px;
+    &__name{
+      height: 40px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+    &__price{
+      font-weight: bold;
+      font-size: 20px;
+    }
+    &__buy{
+      align-self: flex-end;
+      font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .card-item{
+    width: 150px;
+    .container-img{
+      height: 200px;
+      img{
+        width: 150px;
+        height: 200px;
+      }
+    }
+  }
+  }

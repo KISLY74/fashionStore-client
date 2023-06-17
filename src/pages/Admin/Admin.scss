@@ -1,0 +1,38 @@
+.admin{
+  margin-top: 60px;
+  font-family: Oswald;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  &-container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    width: 100%;
+    .admin-header{
+      position: relative;
+      display: flex;
+      max-width: 100%;
+      padding: 10px 0;
+      &__value{
+        display: inline;
+        padding: 10px 20px;
+        font-family: Noto serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #fff;
+        background-color: #000;
+        cursor: pointer;
+        &:hover{
+          background-color: #fff;
+          color: #000;
+        }
+      }
+      .value-active{
+        color: #000;
+        font-weight: bold;
+        background-color: #fff;
+      }
+    }
+  }
+}
