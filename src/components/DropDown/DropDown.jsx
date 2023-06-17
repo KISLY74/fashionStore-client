@@ -1,5 +1,5 @@
 import "./DropDown.scss"
-import { BASKET_ROUTE, CATALOG_ROUTE, ORDERS_ROUTE, PROFILE_ROUTE } from "utils/consts"
+import { ADMIN_PRODUCTS_ROUTE, BASKET_ROUTE, CATALOG_ROUTE, ORDERS_ROUTE, PROFILE_ROUTE } from "utils/consts"
 import { NavLink } from "react-router-dom"
 import cart from "assets/cart.svg"
 import logout from "assets/logout.svg"
@@ -16,7 +16,7 @@ const DropDown = ({ setIsShow }) => {
   return <nav className="drop-down">
     <NavLink
       className="menu-item"
-      to={ORDERS_ROUTE}
+      to={ADMIN_PRODUCTS_ROUTE}
       onClick={() => setIsShow(false)}>
       <p className="menu-item__name">Админ панель</p>
     </NavLink>
@@ -26,7 +26,7 @@ const DropDown = ({ setIsShow }) => {
       onClick={() => setIsShow(false)}>
       <p className="menu-item__name">Каталог</p>
     </NavLink>
-    {/* <NavLink
+    <NavLink
       className="menu-item"
       to={PROFILE_ROUTE}
       onClick={() => setIsShow(false)}>
@@ -36,7 +36,7 @@ const DropDown = ({ setIsShow }) => {
         src={warning}
         alt="dont load" />}
       <img src={profileSettings} alt="profile-icon" />
-    </NavLink> */}
+    </NavLink>
     <NavLink
       className="menu-item"
       to={BASKET_ROUTE}
