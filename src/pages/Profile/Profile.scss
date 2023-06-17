@@ -86,12 +86,16 @@
     }
   }
 }
-@media (max-width: 450px){
+@media (max-width: 768px){
   .main-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     .form-container{
       .form-group{
-        width: 350px !important;
+        width: 300px !important;
         p{
           width: max-content;
         }

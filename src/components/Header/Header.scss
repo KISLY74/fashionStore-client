@@ -94,11 +94,11 @@ body{
   }
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .header-container{
       align-items: center;
       justify-content: center;
-      padding: 2px;
+      padding: 5px;
       gap: 5px;
       height: 70px;
       .nav{
@@ -107,6 +107,11 @@ body{
         justify-content: flex-end;
         .nav-list:nth-child(1){
           display: none;
+        }
+        .nav-list:nth-child(2){
+          .nav-list__item{
+            display: none;
+          }
         }
       }
     }

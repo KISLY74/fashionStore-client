@@ -1,11 +1,16 @@
 import "./Orders.scss"
-import { useCallback, useState, useEffect } from "react"
+import { useCallback, useState, useEffect, useContext } from "react"
 import FiltersOrders from "components/FiltersOrders/FiltersOrders"
 import OrderService from "services/OrderService"
 import Spinner from "components/Spinner/Spinner"
 import { BASE_URL } from "http"
+import UserService from "services/UserService"
+import { Context } from "index"
+import { observer } from "mobx-react-lite"
+import ButtonRate from "components/ButtonRate/ButtonRate"
 
 const Orders = () => {
+  const { store, notification } = useContext(Context)
   const [orders, setOrders] = useState([])
   const [status, setStatus] = useState("Все")
   const [isLoading, setIsLoading] = useState(false)
@@ -35,6 +40,12 @@ const Orders = () => {
     }
   }, [status])
 
+  async function setRating(productId, value) {
+    await UserService.setRating(store.user.id, productId, value)
+      .then(() => notification.setNotification("success", "Оценка успешно обновлена"))
+      .catch((e) => notification.setNotification("error", e?.response?.data?.message))
+  }
+
   useEffect(() => {
     fetchOrders()
   }, [fetchOrders])
@@ -46,21 +57,21 @@ const Orders = () => {
         <FiltersOrders
           status={status}
           setStatus={setStatus} />
-        <table className="table-orders">
-          <thead>
-            <tr>
-              <th>Номер</th>
-              <th>Создан</th>
-              <th>Цена</th>
-              <th>Статус</th>
-              <th>Товары</th>
-              <th>Доставка</th>
-            </tr>
-          </thead>
-          {isLoading ?
+        {isLoading ?
+          <table className="table-orders">
+            <thead>
+              <tr>
+                <th>Номер</th>
+                <th>Создан</th>
+                <th>Цена</th>
+                <th>Статус</th>
+                <th>Товары</th>
+                <th>Доставка</th>
+              </tr>
+            </thead>
             <tbody className="tbody">
               {orders && orders.map((e, i) => {
-                return <tr id="tr">
+                return <tr key={JSON.stringify(e)} id="tr">
                   <td>#{i + 1}</td>
                   <td>{e.createdAt.slice(0, 10)}</td>
                   <td>{e.products.reduce((acc, el) => {
@@ -69,7 +80,7 @@ const Orders = () => {
                   <td>{e.status}</td>
                   <td>
                     {e.products && e.products.map((item, i) => {
-                      return <div className="item">
+                      return <div key={JSON.stringify(item)} className="item">
                         <div className="item-container">
                           <p className="item-container__name">{item.product.name}</p>
                           <img className="item-container__img" src={BASE_URL + item.img} alt="dont load" />
@@ -79,11 +90,14 @@ const Orders = () => {
                         </div>
                         {e.status === "Завершен" &&
                           <div className="item__rate">
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>4</button>
-                            <button className={`${i === 0 ? "active-rate" : ""}`}>5</button>
+                            {new Array(5).fill(0).map((n, j) => {
+                              return <ButtonRate
+                                key={`btn-${j + 1}-${store.user.id}-${item.product.id}`}
+                                userId={store.user.id}
+                                productId={item.product.id}
+                                value={j + 1}
+                                setRating={setRating} />
+                            })}
                             <p>Поставьте оценку товару!</p>
                           </div>}
                       </div>
@@ -93,11 +107,11 @@ const Orders = () => {
                 </tr>
               })}
             </tbody>
-            : <Spinner />}
-        </table>
+          </table>
+          : <Spinner />}
       </div>
     </div>
   </main>
 }
 
-export default Orders
+export default observer(Orders)
