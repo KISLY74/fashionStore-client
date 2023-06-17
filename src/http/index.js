@@ -1,10 +1,10 @@
 import axios from "axios"
 import jwt_decode from "jwt-decode"
 
-// export const API_URL = `http://localhost:4000/api`
-export const API_URL = `https://fashionstore-jlu4.onrender.com/api`
-// export const BASE_URL = `http://localhost:4000/`
-export const BASE_URL = `https://fashionstore-jlu4.onrender.com/`
+export const API_URL = `http://localhost:4000/api`
+// export const API_URL = `https://fashionstore-jlu4.onrender.com/api`
+export const BASE_URL = `http://localhost:4000/`
+// export const BASE_URL = `https://fashionstore-jlu4.onrender.com/`
 export const email = localStorage.getItem('token') && jwt_decode(localStorage.getItem('token')).email
 
 const $api = axios.create({
