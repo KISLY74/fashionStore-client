@@ -38,9 +38,11 @@ const Header = () => {
           </ul>
           {store.isAuth ?
             <ul className="nav-list">
-              {store.user.roleName === 'ADMIN' && <NavLink
-                to={ADMIN_PRODUCTS_ROUTE}
-                className={({ isActive }) => isActive ? "active-nav" : ""}>Админ панель</NavLink>}
+              <li className="nav-list__item">
+                {store.user.roleName === 'ADMIN' && <NavLink
+                  to={ADMIN_PRODUCTS_ROUTE}
+                  className={({ isActive }) => isActive ? "active-nav" : ""}>Админ панель</NavLink>}
+              </li>
               <li className="nav-list__item">
                 <NavLink to={PROFILE_ROUTE}
                   className={({ isActive }) => isActive ? "active-nav" : ""}>Профиль</NavLink>

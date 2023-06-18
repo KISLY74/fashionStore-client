@@ -14,12 +14,13 @@ const DropDown = ({ setIsShow }) => {
   const { store } = useContext(Context)
 
   return <nav className="drop-down">
-    <NavLink
-      className="menu-item"
-      to={ADMIN_PRODUCTS_ROUTE}
-      onClick={() => setIsShow(false)}>
-      <p className="menu-item__name">Админ панель</p>
-    </NavLink>
+    {store.user.roleName === 'ADMIN' &&
+      <NavLink
+        className="menu-item"
+        to={ADMIN_PRODUCTS_ROUTE}
+        onClick={() => setIsShow(false)}>
+        <p className="menu-item__name">Админ панель</p>
+      </NavLink>}
     <NavLink
       className="menu-item"
       to={CATALOG_ROUTE}

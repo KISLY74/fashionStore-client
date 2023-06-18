@@ -74,21 +74,22 @@
         font-size: 22px;
         cursor: pointer;
         border-radius: 25px;
+        &:active{
+          background-color: #aaa;
+        }
       }
       &__add{
         background-color: #000;
         &:hover{
           background-color: #aaa;
-          color: #000;
-          font-weight: bold;
+          // color: #000;
+          // font-weight: bold;
         }
       }
       &__order{
         background-color: #177;
         &:hover{
           background-color: #aaa;
-          font-weight: bold;
-          color: #000;
         }
       }
     }
@@ -140,4 +141,50 @@
     }
   }
 }
+}
+@media(max-width: 1080px){
+  .container{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media(max-width: 768px){
+  .main-product{
+    padding: 10px;
+    .container{
+      &__settings {
+        position: relative;
+        background-color: #aaa;
+        margin: 10px auto;
+        border-radius: 25px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 10px 120px;
+        &:hover{
+          background-color: #ececec;
+        }
+        &:active{
+          background-color: #ececec;
+        }
+      }
+      .info{
+        padding: 5px;
+        align-items: center;
+        margin-right: 0;
+        .group-buttons{
+          flex-direction: column;
+          width: 100%;
+          gap: 10px;
+        }
+      }
+      .img-container{
+        .container__image{
+          width: 300px !important;
+          height: 350px !important;
+        }
+      }
+    }
+  }
 }

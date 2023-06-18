@@ -50,9 +50,14 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .card-item{
     width: 150px;
+    .info{
+      &__price{
+        margin-top: 12px;
+      }
+    }
     .container-img{
       height: 200px;
       img{
