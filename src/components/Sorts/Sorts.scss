@@ -77,9 +77,10 @@
   .container{
     display: flex;
     justify-content: center;
+    button{
+      width: 100%;
+      padding: 15px 0;
+    }
   }
 }
-}
-@media (max-width: 555px) {
-
 }

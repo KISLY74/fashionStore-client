@@ -123,3 +123,17 @@
   }
   }
 }
+@media(max-width: 500px){
+  .settings-product{
+    .container{
+      width: 315px;
+      padding: 40px 5px;
+      .container-table{
+        max-width: 315px; 
+      }
+      .add-products{
+        max-width: 310px;
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@
     margin-top: 20px;
     .filters{
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       h3{
         display: flex;
@@ -26,15 +27,17 @@
         padding: 10px 20px;
       }
     }
+    .container-table{
+      overflow: auto;
       .table-orders{
         font-family: Oswald;
-        thead{
-          th{
-            font-size: 20px;
-            padding: 10px 20px;
+          thead{
+            th{
+              font-size: 20px;
+              padding: 10px 20px;
+            }
           }
-        }
-        .tbody{
+          .tbody{
         #tr{
           td{
             border-top: 2px solid #000;
@@ -100,6 +103,23 @@
             }
           }
           }
+        }
+    }
+  }
+    }
+  }
+}
+@media(max-width: 1368px){
+  .main-orders{
+    padding: 10px;
+  }
+}
+@media(max-width: 600px){
+  .container-table{
+    .table-orders{
+      thead{
+        th{
+          font-size: 18px !important;
         }
       }
     }
