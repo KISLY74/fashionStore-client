@@ -31,26 +31,28 @@ const AdminOrders = () => {
     <FiltersOrders
       status={status}
       setStatus={setStatus} />
-    {isLoading ?
-      <table className="table-orders">
-        <thead>
-          <tr>
-            <th>Номер</th>
-            <th>Создан</th>
-            <th>Пользователь</th>
-            <th>Цена</th>
-            <th>Статус</th>
-            <th>Товары</th>
-            <th>Действия</th>
-          </tr>
-        </thead>
-        <tbody className="tbody">
-          {orders && orders.map((order, i) => {
-            return <RowOrder fetchOrders={fetchOrders} key={JSON.stringify(order)} order={order} i={i} />
-          })}
-        </tbody>
-      </table>
-      : <Spinner />}
+    <div className="container-table-orders">
+      {isLoading ?
+        <table className="table-orders">
+          <thead>
+            <tr>
+              <th>Номер</th>
+              <th>Создан</th>
+              <th>Пользователь</th>
+              <th>Цена</th>
+              <th>Статус</th>
+              <th>Товары</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody className="tbody">
+            {orders && orders.map((order, i) => {
+              return <RowOrder fetchOrders={fetchOrders} key={JSON.stringify(order)} order={order} i={i} />
+            })}
+          </tbody>
+        </table>
+        : <Spinner />}
+    </div>
   </section>
 }
 

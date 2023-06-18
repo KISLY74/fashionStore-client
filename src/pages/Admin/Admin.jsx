@@ -27,7 +27,7 @@ const Admin = ({ titleActive, component }) => {
       <div className="admin-header">
         {titles.map(({ route, title }) => {
           return <NavLink key={route + title} to={route}>
-            <h2 className={`admin-header__value ${titleActive === title && "value-active"}`}>{title}</h2>
+            <h2 className={`admin-header__value ${titleActive === title ? "value-active" : ""}`}>{title}</h2>
           </NavLink>
         })}
       </div>

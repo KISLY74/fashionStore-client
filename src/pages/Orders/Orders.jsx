@@ -30,15 +30,15 @@ const Orders = () => {
   const fetchOrders = useCallback(async () => {
     setIsLoading(false)
     if (status === "Все") {
-      await OrderService.getAllOrders()
+      await OrderService.getOrdersByUser(store.user.id)
         .then((res) => setOrders(res.data))
         .finally(() => setIsLoading(true))
     } else {
-      await OrderService.getOrdersByStatus(status)
+      await OrderService.getOrdersByStatusOfUser(store.user.id, status)
         .then((res) => setOrders(res.data))
         .finally(() => setIsLoading(true))
     }
-  }, [status])
+  }, [status, store.user.id])
 
   async function setRating(productId, value) {
     await UserService.setRating(store.user.id, productId, value)

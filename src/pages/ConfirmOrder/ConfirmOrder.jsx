@@ -21,7 +21,7 @@ const ConfirmOrder = () => {
     const price = JSON.parse(products).reduce((acc, el) => acc + el.count * el.product.price, 0)
     products && JSON.parse(products).map(pr => ids.push({ id: pr.id, count: pr.count }))
 
-    await OrderService.createOrder(ids, deliveryMethod, paymentMethod, price, address)
+    await OrderService.createOrder(ids, deliveryMethod, paymentMethod, price, deliveryMethod === "Курьер на дом" ? store.user.address : address)
       .then(() => notification.setNotification("success", "Заказ успешно оформлен"))
       .catch((e) => notification.setNotification("error", e?.response?.data?.message))
   }

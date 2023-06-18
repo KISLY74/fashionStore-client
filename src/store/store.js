@@ -94,8 +94,6 @@ export default class Store {
     if (value !== 'on') {
       this._checkedProducts = this._checkedProducts.filter(el => el.idB !== item.id + item.attributeValues.join(''))
     } else {
-      // this._checkedProducts.find(el => {
-      // })
       this._checkedProducts.push({ idB: item.id + item.attributeValues.join(''), ...item })
     }
   }

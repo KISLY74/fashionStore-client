@@ -1,6 +1,7 @@
 .admin-workspace{
 .filters{
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   button{
     cursor: pointer;
@@ -24,6 +25,8 @@
     padding: 10px 20px;
   }
 }
+.container-table-orders{
+  overflow: auto;
   .table-orders{
     thead{
       th{
@@ -73,6 +76,15 @@
         }
       }
     }
+    }
   }
 }
+}
+@media (max-width: 768px) {
+  .td-action{
+  align-self: center;
+    display: flex;
+   flex-direction: column;
+    gap: 10px;
+  }
 }

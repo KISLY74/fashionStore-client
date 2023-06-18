@@ -130,7 +130,7 @@ const Product = () => {
         <p className="info__price">Цена: {product.price} руб. </p>
         {store.isAuth && <div className="group-buttons">
           <button className="group-buttons__add btn" onClick={addToBasket}>Добавить в корзину</button>
-          <NavLink to={CONFIRM_ORDER_BASE_ROUTE + "/" + JSON.stringify([{ product, selectedCount }])}>
+          <NavLink to={CONFIRM_ORDER_BASE_ROUTE + "/" + JSON.stringify([{ img: image, product: product, count: selectedCount }])}>
             <button className="group-buttons__order btn">Заказать сейчас</button>
           </NavLink>
         </div>}

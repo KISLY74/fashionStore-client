@@ -11,11 +11,14 @@ export default class OrderService {
   static async changeStatusOrder(id, status) {
     return $api.put(`/order/status/${id}/${status}`)
   }
-  static async getOrders() {
-    return $api.get(`/order/all/${email}`)
+  static async getOrdersByUser(id) {
+    return $api.get(`/order/all/${id}`)
   }
   static async getOrdersByStatus(status) {
     return $api.get(`/order/allByStatus/${status}`)
+  }
+  static async getOrdersByStatusOfUser(id, status) {
+    return $api.get(`/order/all/${id}/${status}`)
   }
   static async getCountOrders(id) {
     return $api.get(`/order/length/${id}`)
