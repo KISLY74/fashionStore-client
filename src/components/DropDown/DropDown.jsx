@@ -52,7 +52,9 @@ const DropDown = ({ setIsShow }) => {
       <p className="menu-item__name">Заказы</p>
       <img src={orders} alt="orders-icon" />
     </NavLink>
-    <div className="menu-item" onClick={() => store.logout()}>
+    <div className="menu-item" onClick={() => {
+      store.logout().then(() => setIsShow(false))
+    }}>
       <p className="menu-item__name">Выйти</p>
       <img src={logout} alt="logout-icon" />
     </div>

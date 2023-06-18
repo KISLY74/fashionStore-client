@@ -11,8 +11,9 @@ function AppRouter() {
   const { store, notification } = useContext(Context)
 
   useEffect(() => {
-    store.setIsAuth(localStorage.getItem("token") && store.checkAuth())
-  }, [store, notification])
+    if (localStorage.getItem("token"))
+      store.checkAuth()
+  }, [])
 
   return <>
     {store.isLoading ?
