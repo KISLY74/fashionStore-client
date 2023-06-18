@@ -10,14 +10,18 @@
       position: relative;
       height: 100%;
       .container__image {
+        display: none;
         width: 500px;
         height: 550px;
         object-fit: cover;
     }
-    &::before, &::after{
-      cursor: pointer;
-      content: "";
-      background-image: url("../../assets/arrow.png");
+    .active-img{
+      display: block;
+    }
+    .arrow-left, 
+    .arrow-right{
+      display: block;
+      z-index: 100;
       position: absolute;
       top: 45%;
       width: 30px;
@@ -26,11 +30,29 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
-    &::after{
+    .arrow-right{
       right: 0;
       transform: rotate(180deg);
     }
+    // &::before, &::after{
+    //   cursor: pointer;
+    //   content: "";
+    //   background-image: url("../../assets/arrow.png");
+    //   position: absolute;
+    //   top: 45%;
+    //   width: 30px;
+    //   height: 30px;
+    //   background-size: cover;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
+    // &::after{
+    //   right: 0;
+    //   transform: rotate(180deg);
+    // }
   }
     &__settings {
     position: absolute;

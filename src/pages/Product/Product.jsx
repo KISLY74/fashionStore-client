@@ -1,6 +1,6 @@
 import ProductService from "services/ProductService"
 import "./Product.scss"
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
 import { BASE_URL } from "http"
 import ProductSettings from "components/ProductSettings/ProductSettings"
@@ -9,11 +9,13 @@ import BasketService from "services/BasketService"
 import { Context } from "index"
 import { observer } from "mobx-react-lite"
 import Spinner from "components/Spinner/Spinner"
+import { CONFIRM_ORDER_BASE_ROUTE } from "utils/consts"
 
 const Product = () => {
   const { store, notification } = useContext(Context)
   const { id } = useParams()
   const [isLoading, setIsLoading] = useState(false)
+  const [currNumImg, setCurrNumImg] = useState(0)
   const [product, setProduct] = useState({})
   const [image, setImage] = useState({})
   const [images, setImages] = useState([])
@@ -28,10 +30,6 @@ const Product = () => {
         .then(() => notification.setNotification("success", "Товар успешно добавлен в корзину!"))
         .catch((e) => notification.setNotification("error", e.response.data.message))
     } else notification.setNotification("warning", "Товара нет в наличии")
-  }
-
-  async function order() {
-
   }
 
   async function fetchSettings() {
@@ -72,13 +70,32 @@ const Product = () => {
       images={images}
       fetchSettings={fetchSettings} />}
     {isLoading ? <div className="container">
-      {image &&
+      <div className="img-container">
+        <img
+          className="arrow-left"
+          onClick={() => setCurrNumImg(currNumImg === 0 ? currNumImg : currNumImg - 1)}
+          src={require("../../assets/arrow.png")}
+          alt="arrow" />
+        {images && images.map((im, ind) => {
+          return <img
+            key={im.img}
+            className={`container__image ${currNumImg === ind ? "active-img" : ""}`}
+            src={BASE_URL + im.img}
+            alt="dont load" />
+        })}
+        <img
+          className="arrow-right"
+          onClick={() => setCurrNumImg(images.length === currNumImg + 1 ? currNumImg : currNumImg + 1)}
+          src={require("../../assets/arrow.png")}
+          alt="arrow" />
+      </div>
+      {/* {image &&
         <div className="img-container">
           <img
             className="container__image"
             src={BASE_URL + image}
             alt="dont load" />
-        </div>}
+        </div>} */}
       {store.user.roleName === "ADMIN" && <img
         className="container__settings"
         src={settingsProductIcon}
@@ -108,12 +125,14 @@ const Product = () => {
             onChange={(e) => setSelectedCount(e.target.value)} />
         </div>
         <p className="rating">Общаяя оценка:
-          <span>0</span>(0)
+          <span>{product.rating}</span>
         </p>
         <p className="info__price">Цена: {product.price} руб. </p>
         {store.isAuth && <div className="group-buttons">
           <button className="group-buttons__add btn" onClick={addToBasket}>Добавить в корзину</button>
-          <button className="group-buttons__order btn" onClick={order}>Заказать сейчас</button>
+          <NavLink to={CONFIRM_ORDER_BASE_ROUTE + "/" + JSON.stringify([{ product, selectedCount }])}>
+            <button className="group-buttons__order btn">Заказать сейчас</button>
+          </NavLink>
         </div>}
       </div>
     </div> : <Spinner />}
